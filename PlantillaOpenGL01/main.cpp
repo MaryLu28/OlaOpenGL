@@ -13,8 +13,18 @@ using namespace std;
 GLfloat ctlpointsNurbsSurf[21][21][3];
 
 GLfloat knotsSurf[25] = {
-    0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+    0.0,0.0,0.0,0.0,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,1.0,1.0,1.0,1.0
 };
+
+GLfloat L[2] = {0.0,0.0};
+GLfloat A[2] = {0.0,0.0};
+GLfloat S[2] = {0.0,0.0};
+GLfloat D[2] = {0.0,0.0};
+
+GLfloat W[2];
+GLfloat phi[2];
+
+float pi = 3.141592;
 
 GLUnurbsObj *theNurb;
 
@@ -116,8 +126,6 @@ void init(){
     // t = 0.0;
 }
 
-
-
 void Keyboard(unsigned char key, int x, int y)
 {
   switch (key)
@@ -128,8 +136,6 @@ void Keyboard(unsigned char key, int x, int y)
     
   }
 }
-
-
 
 void render(){
     glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -232,6 +238,10 @@ void render(){
 }
 
 void animacion(int value) {
+
+    t+=0.01;
+
+    // Formula
     
     glutTimerFunc(10,animacion,1);
     glutPostRedisplay();
@@ -260,7 +270,6 @@ int main (int argc, char** argv) {
         return 1;
     }
     
-
     glutMainLoop();
     return 0;
 
