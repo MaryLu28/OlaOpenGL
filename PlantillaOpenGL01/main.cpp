@@ -20,10 +20,12 @@ struct direccionOla
 
 GLfloat ctlpointsNurbsSurf[21][21][3];
 
+// Knots para la creacion de la superficie
 GLfloat knotsSurf[25] = {
     0.0,0.0,0.0,0.0,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,1.0,1.0,1.0,1.0
 };
 
+// Variables de la formula
 GLfloat L[2] = {0.0,0.0};
 GLfloat A[2] = {0.0,0.0};
 GLfloat S[2] = {0.0,0.0};
@@ -187,18 +189,19 @@ void changeViewport(int w, int h) {
 
 void init_surface() {
     
-    GLfloat z = 10.0;
+    GLfloat z = 10.0; // primer valor de Z para los puntos de control
+    // Creacion de los puntos de control
     for (int i=0; i < 21; i++)
-    {
-        GLfloat x = 10.0;
+    {   
+        GLfloat x = 10.0; // primer valor de X para los puntos de control
         for (int j=0; j < 21; j++)
         {
-            ctlpointsNurbsSurf[i][j][0] = x;
-            ctlpointsNurbsSurf[i][j][1] = 0.0;
-            ctlpointsNurbsSurf[i][j][2] = z;
-            x -= 1.0;
+            ctlpointsNurbsSurf[i][j][0] = x;    // coordenada X del punto de control actual
+            ctlpointsNurbsSurf[i][j][1] = 0.0;  // coordenada Y del punto de control actual
+            ctlpointsNurbsSurf[i][j][2] = z;    // coordenada Z del punto de control actual
+            x -= 1.0;   // despazamiendo en el eje X de los puntos de control
         }
-        z -= 1.0;
+        z -= 1.0;   // desplazamiento en el eje Z de los puntos de control
     }
 }
 
@@ -287,6 +290,7 @@ void render(){
 
     gluBeginSurface(theNurb);
     
+    // creacion de la superficie
     gluNurbsSurface(theNurb, 
                    25, knotsSurf, 25, knotsSurf,
                    21 * 3, 3, &ctlpointsNurbsSurf[0][0][0], 
@@ -373,7 +377,7 @@ void init(){
     theNurb = gluNewNurbsRenderer();
     gluNurbsProperty(theNurb, GLU_SAMPLING_TOLERANCE, 15.0);
     gluNurbsProperty(theNurb, GLU_DISPLAY_MODE, GLU_FILL);
-    init_surface();
+    //init_surface();
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_AUTO_NORMAL);
