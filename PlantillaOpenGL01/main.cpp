@@ -3,12 +3,20 @@
 #include <GL\glew.h>
 #include <GL\freeglut.h>
 #include <iostream>
+#include <map>            // Librería que me permite utilizar hash.
+#include <cmath>
 
 using namespace std;
 
 #define DEF_floorGridScale  1.0
 #define DEF_floorGridXSteps 10.0
 #define DEF_floorGridZSteps 10.0
+
+struct direccionOla 
+{
+	GLfloat x;
+	GLfloat z;
+};
 
 GLfloat ctlpointsNurbsSurf[21][21][3];
 
@@ -19,16 +27,107 @@ GLfloat knotsSurf[25] = {
 GLfloat L[2] = {0.0,0.0};
 GLfloat A[2] = {0.0,0.0};
 GLfloat S[2] = {0.0,0.0};
-GLfloat D[2] = {0.0,0.0};
+direccionOla D[2];
+direccionOla Dnormal[2];
 
-GLfloat W[2];
-GLfloat phi[2];
+GLfloat W[2] = {0.0, 0.0};
+GLfloat phi[2] = {0.0, 0.0};
 
 float pi = 3.141592;
 
 GLUnurbsObj *theNurb;
 
 float t;
+
+int idOla = 0;
+
+/*
+	Descripción:
+		Permite capturar que tecla es presionada y de esta forma
+		se podrá encadenar la acción correspondiente.
+*/
+void teclaPresionada(unsigned char tecla, int x, int y)
+{
+	switch (tecla)
+	{
+		// Teclas para cambiar los valores de la ola.
+		case 'a':
+		case 'A':
+			if (idOla != 0)
+			{
+				L[idOla - 1] -= 0.1;
+				W[idOla - 1] = 2*pi / L[idOla - 1];
+				phi[idOla - 1] = S[idOla - 1] * (2*pi / L[idOla - 1]);
+			}
+			break;
+		case 'z':
+		case 'Z':
+			if (idOla != 0) 
+			{
+				L[idOla - 1] += 0.1;
+				W[idOla - 1] = 2*pi / L[idOla - 1];
+				phi[idOla - 1] = S[idOla - 1] * (2*pi / L[idOla - 1]);
+			}
+			break;
+		case 's':
+		case 'S':
+			if (idOla != 0) A[idOla - 1] -= 0.1;
+			break;
+		case 'x':
+		case 'X':
+			if (idOla != 0) A[idOla - 1] += 0.1;
+			break;
+		case 'd':
+		case 'D':
+			if (idOla != 0){
+				S[idOla - 1] -= 0.1;
+				phi[idOla - 1] = S[idOla - 1] * (2*pi / L[idOla - 1]);
+			}
+			break;
+		case 'c':
+		case 'C':
+			if (idOla != 0){
+				S[idOla - 1] += 0.1;
+				phi[idOla - 1] = S[idOla - 1] * (2*pi / L[idOla - 1]);
+			};
+			break;
+		case 'f':
+		case 'F':
+			if (idOla != 0) D[idOla - 1].x -= 0.1;
+			break;
+		case 'v':
+		case 'V':
+			if (idOla != 0) D[idOla - 1].x += 0.1;
+			break;
+		case 'g':
+		case 'G':
+			if (idOla != 0) D[idOla - 1].z -= 0.1;
+			break;
+		case 'b':
+		case 'B':
+			if (idOla != 0) D[idOla - 1].z += 0.1;
+			break;
+
+		// Tecla para  comenzar la animación.
+		case 'r':
+		case 'R':
+			break;
+		
+		// Tecla para detener la animación.
+		case 'p':
+		case 'P':
+			break;
+
+		// Teclas para seleccionar la ola.
+		case '1':
+			idOla = 1;
+			break;
+		case '2': 
+			idOla = 2;
+			break;
+	}
+}
+
 
 void ejesCoordenada() {
     
@@ -103,29 +202,6 @@ void init_surface() {
     }
 }
 
-void init(){
-
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_AUTO_NORMAL);
-    glEnable(GL_NORMALIZE);
-
-    init_surface();
-
-    theNurb = gluNewNurbsRenderer();
-    gluNurbsProperty(theNurb, GLU_SAMPLING_TOLERANCE, 15.0);
-    gluNurbsProperty(theNurb, GLU_DISPLAY_MODE, GLU_FILL);
-    init_surface();
-
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_AUTO_NORMAL);
-    glEnable(GL_NORMALIZE);
-
-    // glutTimerFunc(10,changePoints,1);
-    // t = 0.0;
-}
-
 void Keyboard(unsigned char key, int x, int y)
 {
   switch (key)
@@ -141,11 +217,18 @@ void render(){
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	D[0].x = 0.0;
+	D[0].z = 0.0;
+	D[1].x = 0.0;
+	D[1].z = 0.0;
+
     GLfloat zExtent, xExtent, xLocal, zLocal;
     int loopX, loopZ;
 
     glLoadIdentity ();                       
     gluLookAt (25.0, 12.0, 4.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+
+	glutKeyboardFunc(teclaPresionada);
 
     // Luz y material
 
@@ -239,13 +322,65 @@ void render(){
 
 void animacion(int value) {
 
+	//GLfloat normal0 = 1 / sqrt(pow(D[0].x,2)+pow(D[0].z,2));
+	//GLfloat normal1 = 1 / sqrt(pow(D[1].x,2)+pow(D[1].z,2));
+	//Dnormal[0].x = D[0].x * normal0;
+	//Dnormal[0].x = D[0].z * normal0;
+	//Dnormal[0].x = D[1].x * normal1;
+	//Dnormal[0].x = D[1].z * normal1;
+
+	float sum0 = 0.0;
+	float sum1 = 0.0;
+
+	for (int i=0; i < 21; i++)
+    {
+        for (int j=0; j < 21; j++)
+        {
+			//printf("Entre aqui...\n");
+
+			GLfloat tempNurbX = ctlpointsNurbsSurf[i][j][0];
+			GLfloat tempNurbZ = ctlpointsNurbsSurf[i][j][2];
+			sum0 = A[0] * sinf((((Dnormal[0].x * tempNurbX) + (Dnormal[0].z * tempNurbZ)) * W[0]) + (t * phi[0]));
+			sum1 = A[1] * sinf((((Dnormal[1].x * tempNurbX) + (Dnormal[1].z * tempNurbZ)) * W[1]) + (t * phi[1]));
+			
+			//sum0 = A[0] * sinf((((D[0].x * tempNurbX) + (D[0].z * tempNurbZ)) * W[0]) + (t * phi[0]));
+			//sum1 = A[1] * sinf((((D[1].x * tempNurbX) + (D[1].z * tempNurbZ)) * W[1]) + (t * phi[1]));
+			
+			ctlpointsNurbsSurf[i][j][1] = sum0 + sum1;
+			//printf("%f.\n",sinf((((D[0].x * tempNurbX) + (D[0].z * tempNurbZ)) * W[0]) + (t * phi[0])));
+		}
+    }
+
     t+=0.01;
 
     // Formula
-    
+    //printf("Entre aqui...\n");
     glutTimerFunc(10,animacion,1);
     glutPostRedisplay();
     
+}
+
+void init(){
+
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_AUTO_NORMAL);
+    glEnable(GL_NORMALIZE);
+
+    init_surface();
+
+    theNurb = gluNewNurbsRenderer();
+    gluNurbsProperty(theNurb, GLU_SAMPLING_TOLERANCE, 15.0);
+    gluNurbsProperty(theNurb, GLU_DISPLAY_MODE, GLU_FILL);
+    init_surface();
+
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_AUTO_NORMAL);
+    glEnable(GL_NORMALIZE);
+
+	glutTimerFunc(10,animacion,1);
+    t = 0.0;
 }
 
 int main (int argc, char** argv) {
