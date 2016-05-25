@@ -334,9 +334,9 @@ void animacion(int value) {
 	GLfloat normal0 = 1 / sqrt(pow(D[0].x,2)+pow(D[0].z,2));
 	GLfloat normal1 = 1 / sqrt(pow(D[1].x,2)+pow(D[1].z,2));
 	Dnormal[0].x = D[0].x * normal0;
-	Dnormal[0].x = D[0].z * normal0;
-	Dnormal[0].x = D[1].x * normal1;
-	Dnormal[0].x = D[1].z * normal1;
+	Dnormal[0].z = D[0].z * normal0;
+	Dnormal[1].x = D[1].x * normal1;
+	Dnormal[1].z = D[1].z * normal1;
 
 	float sum0 = 0.0;
 	float sum1 = 0.0;
@@ -345,8 +345,14 @@ void animacion(int value) {
     {
         for (int j=0; j < 21; j++)
         {
-			sum0 = A[0] * sinf((((Dnormal[0].x * ctlpointsNurbsSurf[i][j][0]) + (Dnormal[0].z * ctlpointsNurbsSurf[i][j][2])) * W[0]) + (t * phi[0]));
-			sum1 = A[1] * sinf((((Dnormal[1].x * ctlpointsNurbsSurf[i][j][0]) + (Dnormal[1].z * ctlpointsNurbsSurf[i][j][2])) * W[1]) + (t * phi[1]));
+			float wDnormal0x = ctlpointsNurbsSurf[i][j][0] * W[0];
+			float wDnormal0z = ctlpointsNurbsSurf[i][j][2] * W[0];
+
+			float wDnormal1x = ctlpointsNurbsSurf[i][j][0] * W[1];
+			float wDnormal1z = ctlpointsNurbsSurf[i][j][2] * W[1];
+
+			sum0 = A[0] * sin((Dnormal[0].x * wDnormal0x + Dnormal[0].z * wDnormal0z) + (t * phi[0]));
+			sum1 = A[1] * sin((Dnormal[1].x * wDnormal1x + Dnormal[1].z * wDnormal1z) + (t * phi[1]));
 			ctlpointsNurbsSurf[i][j][1] = sum0 + sum1;
 		}
     }

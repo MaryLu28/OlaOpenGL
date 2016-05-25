@@ -1,55 +1,55 @@
-﻿Build started 24/5/2016 9:14:29 p. m..
-     1>Project "C:\Users\MariaLourdes\Documents\··USB\XVI TRIMESTRE\OlaOpenGL\PlantillaOpenGL01\PlantillaOpenGL01.vcxproj" on node 2 (Build target(s)).
+﻿Build started 5/25/2016 6:55:28 PM.
+     1>Project "C:\dev\respaldoOla\OlaOpenGL\PlantillaOpenGL01\PlantillaOpenGL01.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\dev\opengl\freeglut\include /I"C:\dev\opengl\glew-1.7.0\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(25): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(30): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(38): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(63): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(72): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(79): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(83): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(88): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(95): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(101): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(105): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(109): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(113): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(158): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(158): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(159): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(159): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(161): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(161): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(162): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(162): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(164): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(164): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(165): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(165): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(167): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(167): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(168): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(168): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(181): warning C4101: 'aspectratio' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(243): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(244): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(252): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(253): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(254): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'zLocal' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'xExtent' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(234): warning C4101: 'loopX' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'xLocal' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(234): warning C4101: 'loopZ' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'zExtent' : variable local sin referencia
-     1>c:\users\marialourdes\documents\··usb\xvi trimestre\olaopengl\plantillaopengl01\main.cpp(363): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(25): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(30): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(38): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(63): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(72): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(79): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(83): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(88): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(95): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(101): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(105): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(109): warning C4305: '-=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(113): warning C4305: '+=' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(158): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(158): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(159): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(159): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(161): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(161): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(162): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(162): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(164): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(164): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(165): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(165): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(167): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(167): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(168): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(168): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(181): warning C4101: 'aspectratio' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(243): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(244): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(252): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(253): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(254): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'zLocal' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'xExtent' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(234): warning C4101: 'loopX' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'xLocal' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(234): warning C4101: 'loopZ' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(233): warning C4101: 'zExtent' : variable local sin referencia
+     1>c:\dev\respaldoola\olaopengl\plantillaopengl01\main.cpp(360): warning C4305: '+=' : truncamiento de 'double' a 'float'
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MariaLourdes\Documents\··USB\XVI TRIMESTRE\OlaOpenGL\Debug\OlaOpenGL.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86" /LIBPATH:C:\dev\opengl\freeglut\lib /LIBPATH:"C:\dev\opengl\glew-1.7.0\lib" glew32.lib freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MariaLourdes\Documents\··USB\XVI TRIMESTRE\OlaOpenGL\Debug\OlaOpenGL.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MariaLourdes\Documents\··USB\XVI TRIMESTRE\OlaOpenGL\Debug\OlaOpenGL.lib" /MACHINE:X86 Debug\main.obj
-         PlantillaOpenGL01.vcxproj -> C:\Users\MariaLourdes\Documents\··USB\XVI TRIMESTRE\OlaOpenGL\Debug\OlaOpenGL.exe
-     1>Done Building Project "C:\Users\MariaLourdes\Documents\··USB\XVI TRIMESTRE\OlaOpenGL\PlantillaOpenGL01\PlantillaOpenGL01.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\dev\respaldoOla\OlaOpenGL\Debug\OlaOpenGL.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86" /LIBPATH:C:\dev\opengl\freeglut\lib /LIBPATH:"C:\dev\opengl\glew-1.7.0\lib" glew32.lib freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\dev\respaldoOla\OlaOpenGL\Debug\OlaOpenGL.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\dev\respaldoOla\OlaOpenGL\Debug\OlaOpenGL.lib" /MACHINE:X86 Debug\main.obj
+         PlantillaOpenGL01.vcxproj -> C:\dev\respaldoOla\OlaOpenGL\Debug\OlaOpenGL.exe
+     1>Done Building Project "C:\dev\respaldoOla\OlaOpenGL\PlantillaOpenGL01\PlantillaOpenGL01.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.21
+Time Elapsed 00:00:01.97
