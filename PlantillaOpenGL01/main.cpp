@@ -26,9 +26,9 @@ GLfloat knotsSurf[25] = {
 };
 
 // Variables de la formula
-GLfloat L[2] = {0.0,0.0};
-GLfloat A[2] = {0.0,0.0};
-GLfloat S[2] = {0.0,0.0};
+GLfloat L[2] = {8.0,4.0};
+GLfloat A[2] = {0.4,0.0};
+GLfloat S[2] = {2.0,0.0};
 direccionOla D[2];
 direccionOla Dnormal[2];
 
@@ -43,6 +43,8 @@ float t;
 
 int idOla = 0;
 
+bool activado = false;
+
 /*
 	Descripción:
 		Permite capturar que tecla es presionada y de esta forma
@@ -53,6 +55,7 @@ void teclaPresionada(unsigned char tecla, int x, int y)
 	switch (tecla)
 	{
 		// Teclas para cambiar los valores de la ola.
+
 		case 'a':
 		case 'A':
 			if (idOla != 0)
@@ -113,11 +116,13 @@ void teclaPresionada(unsigned char tecla, int x, int y)
 		// Tecla para  comenzar la animación.
 		case 'r':
 		case 'R':
+            activado = true;
 			break;
 		
 		// Tecla para detener la animación.
 		case 'p':
 		case 'P':
+            activado = false;
 			break;
 
 		// Teclas para seleccionar la ola.
@@ -221,9 +226,9 @@ void render(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	D[0].x = 0.0;
-	D[0].z = 0.0;
-	D[1].x = 0.0;
-	D[1].z = 0.0;
+	D[0].z = -1.0;
+	D[1].x = 1.0;
+	D[1].z = 1.0;
 
     GLfloat zExtent, xExtent, xLocal, zLocal;
     int loopX, loopZ;
@@ -255,7 +260,7 @@ void render(){
     glLightfv(GL_LIGHT0, GL_POSITION, light_position);   
 
     // Render Grid 
-    glDisable(GL_LIGHTING);
+    /*glDisable(GL_LIGHTING);
     glLineWidth(1.0);
     glPushMatrix();
     glRotatef(90,1.0,0.0,0.0);
@@ -278,7 +283,7 @@ void render(){
     glEnd();
     ejesCoordenada();
     glPopMatrix();
-    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHTING);*/
     // Fin Grid
     
     //Suaviza las lineas
@@ -303,7 +308,7 @@ void render(){
     
     /* Muestra los puntos de control */
     
-        int i,j;
+    /*    int i,j;
         glPointSize(5.0);
         glDisable(GL_LIGHTING);
         glColor3f(1.0, 1.0, 0.0);
@@ -314,7 +319,7 @@ void render(){
             }
         }
         glEnd();
-        glEnable(GL_LIGHTING);
+        glEnable(GL_LIGHTING);*/
     
         
 
@@ -326,12 +331,12 @@ void render(){
 
 void animacion(int value) {
 
-	//GLfloat normal0 = 1 / sqrt(pow(D[0].x,2)+pow(D[0].z,2));
-	//GLfloat normal1 = 1 / sqrt(pow(D[1].x,2)+pow(D[1].z,2));
-	//Dnormal[0].x = D[0].x * normal0;
-	//Dnormal[0].x = D[0].z * normal0;
-	//Dnormal[0].x = D[1].x * normal1;
-	//Dnormal[0].x = D[1].z * normal1;
+	GLfloat normal0 = 1 / sqrt(pow(D[0].x,2)+pow(D[0].z,2));
+	GLfloat normal1 = 1 / sqrt(pow(D[1].x,2)+pow(D[1].z,2));
+	Dnormal[0].x = D[0].x * normal0;
+	Dnormal[0].x = D[0].z * normal0;
+	Dnormal[0].x = D[1].x * normal1;
+	Dnormal[0].x = D[1].z * normal1;
 
 	float sum0 = 0.0;
 	float sum1 = 0.0;
@@ -340,25 +345,14 @@ void animacion(int value) {
     {
         for (int j=0; j < 21; j++)
         {
-			//printf("Entre aqui...\n");
-
-			GLfloat tempNurbX = ctlpointsNurbsSurf[i][j][0];
-			GLfloat tempNurbZ = ctlpointsNurbsSurf[i][j][2];
-			sum0 = A[0] * sinf((((Dnormal[0].x * tempNurbX) + (Dnormal[0].z * tempNurbZ)) * W[0]) + (t * phi[0]));
-			sum1 = A[1] * sinf((((Dnormal[1].x * tempNurbX) + (Dnormal[1].z * tempNurbZ)) * W[1]) + (t * phi[1]));
-			
-			//sum0 = A[0] * sinf((((D[0].x * tempNurbX) + (D[0].z * tempNurbZ)) * W[0]) + (t * phi[0]));
-			//sum1 = A[1] * sinf((((D[1].x * tempNurbX) + (D[1].z * tempNurbZ)) * W[1]) + (t * phi[1]));
-			
+			sum0 = A[0] * sinf((((Dnormal[0].x * ctlpointsNurbsSurf[i][j][0]) + (Dnormal[0].z * ctlpointsNurbsSurf[i][j][2])) * W[0]) + (t * phi[0]));
+			sum1 = A[1] * sinf((((Dnormal[1].x * ctlpointsNurbsSurf[i][j][0]) + (Dnormal[1].z * ctlpointsNurbsSurf[i][j][2])) * W[1]) + (t * phi[1]));
 			ctlpointsNurbsSurf[i][j][1] = sum0 + sum1;
-			//printf("%f.\n",sinf((((D[0].x * tempNurbX) + (D[0].z * tempNurbZ)) * W[0]) + (t * phi[0])));
 		}
     }
 
-    t+=0.01;
+    t+=0.1;
 
-    // Formula
-    //printf("Entre aqui...\n");
     glutTimerFunc(10,animacion,1);
     glutPostRedisplay();
     
@@ -377,7 +371,6 @@ void init(){
     theNurb = gluNewNurbsRenderer();
     gluNurbsProperty(theNurb, GLU_SAMPLING_TOLERANCE, 15.0);
     gluNurbsProperty(theNurb, GLU_DISPLAY_MODE, GLU_FILL);
-    //init_surface();
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_AUTO_NORMAL);
